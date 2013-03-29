@@ -1,0 +1,27 @@
+development:
+  sessions:
+    default:
+      database: musicator_development
+      hosts:
+        - localhost:27017
+      options:
+        consistency: :strong
+  options:
+test:
+  sessions:
+    default:
+      database: musicator_test
+      hosts:
+        - localhost:27017
+      options:
+        consistency: :strong
+
+
+production:
+  sessions:
+    default:
+      uri: <%= ENV['MONGOLAB_URI'] %>
+      options:
+        consistency: :strong
+        safe: true
+        skip_version_check: true 

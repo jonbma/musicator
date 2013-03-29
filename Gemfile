@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 gem 'bootstrap-sass', '2.1'
+gem 'rb-readline'
 
 
 # Gems used only for assets and not required
@@ -17,3 +18,5 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "mongoid"
+
