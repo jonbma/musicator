@@ -6,7 +6,7 @@ $(function () {
 		tokenLimit: 1,
 		theme: 'facebook',
 		zindex: '11001',
-    tokenValue: "id",
+    tokenValue: "first_name",
     
 	});
 

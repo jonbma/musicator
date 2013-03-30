@@ -9,7 +9,9 @@ class SubmissionsController < ApplicationController
 	end
 
 	def create
-		@sub = Submission.create!(name: params[:submission][:name], author_id: current_user.id)
+		@reviewer = User.where(first_name: "#{params[:submission][:reviewer_tokens]}").first
+		@sub = Submission.create!(name: params[:submission][:name], author_id: current_user.id, reviewer_id: @reviewer.id)
+
 		redirect_to @sub
 	end
 	

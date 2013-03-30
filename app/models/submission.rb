@@ -9,12 +9,9 @@ class Submission
   embeds_many :stack_items
   embeds_one :chat, autobuild: true
   has_mongoid_attached_file :score
-	attr_accessible :reviewer_tokens
+	attr_accessible :reviewer_tokens, :author_id, :reviewer_id, :name
 	attr_reader :reviewer_tokens
 
-	def reviewer_tokens=(ids)
-    self.reviewer_id = User.first.id
-  end 
 
   validates_presence_of :name, :author_id, :reviewer_id
 
