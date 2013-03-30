@@ -8,11 +8,18 @@
 
 
   <table class="table table-hover">
+    <tr>
+      <th> Submission </th>
+      <th> Author </th>
+      <th> Reviewer </th>
+    </tr>
     <% @submissions.each do |s|%>
       <tr>
         <td> <%= s.name %> </td>
-        <td> <%= User.find(s.author_id).first_name %> </td>
-        <td> <%= User.find(s.author_id).last_name %> </td>
+        <td> <%= User.find(s.author_id).first_name + ' ' %>
+             <%= User.find(s.author_id).last_name %> </td>
+        <td> <%= User.find(s.reviewer_id).first_name + ' ' %>
+             <%= User.find(s.reviewer_id).last_name %> </td>
       </tr>
     <% end %>
   </table>
