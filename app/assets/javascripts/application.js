@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require modals
+//= require jquery.nanoscroller.min
+//= require jquery.tooltipster.min
+//= require pdf
+//= require pdfviewer
