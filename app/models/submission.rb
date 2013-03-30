@@ -16,5 +16,6 @@ class Submission
     self.reviewer_id = User.first.id
   end 
 
+  validates_presence_of :name, :author_id, :reviewer_id
 
 end

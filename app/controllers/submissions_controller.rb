@@ -9,8 +9,8 @@ class SubmissionsController < ApplicationController
 	end
 
 	def create
-		render :text => params
-
+		@sub = Submission.create!(name: params[:submission][:name], author_id: current_user.id)
+		redirect_to @sub
 	end
 	
 end
