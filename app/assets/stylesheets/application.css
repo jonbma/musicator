@@ -12,4 +12,5 @@
  *= require_tree .
  *= require modal
  *= require pdfviewer
+ *= require token-input-facebook
  */

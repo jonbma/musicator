@@ -18,3 +18,5 @@
 //= require jquery.tooltipster.min
 //= require pdf
 //= require pdfviewer
+//= require jquery.tokeninput
+//= require token

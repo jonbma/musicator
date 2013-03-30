@@ -10,7 +10,7 @@ $ ->
     $modal
     .html(data)
     .prepend($modal_close)
-    .css('top', $(window).scrollTop() + 40)
+    .css('top', $(window).scrollTop() + 100)
     .show()
     $modal_container.show();
 

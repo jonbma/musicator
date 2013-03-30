@@ -1,0 +1,11 @@
+<% provide(:title, 'New Submission') %>
+
+<%= form_for @sub do |f| %>
+<%= f.label :reviewer_tokens, 'Reviewer' %>
+<%= f.text_field :reviewer_tokens %>
+
+<%= f.label :name, 'Piece Name'%>
+<%= f.text_field :name %>
+
+<%= f.submit "Add", class: "btn btn-small btn-primary" %>
+<% end %>
