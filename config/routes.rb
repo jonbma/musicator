@@ -1,8 +1,6 @@
 Musicator::Application.routes.draw do
   root to: 'pages#home'
-  
-  get "pages/contact"
 
-  get "pages/help"
-
+match '/help',    to: 'pages#help'
+match '/contact', to: 'pages#contact'  
 end
