@@ -5,52 +5,61 @@
 
 <h2>PDF</h2>
 
-	<div id="page-navs">
-		<button id="back-button">&lt;</button>
-		<input id="page-num" type="text" value="1"/>
-		<button id="fwd-button">&gt;</button>
+<div id="page-wrapper" class="nano">
+	<div class="content">
+		<div id="page-container"></div>
 	</div>
-	<div id="page-wrapper" class="nano">
-		<div class="content">
-			<div id="page-container"></div>
-   		</div>
-	</div>
-	
-	<script type="text/javascript">
-		initPDF("../../test.pdf", 0, [
-			{type: "highlight",
-				pg: 1,
-				color: 0,
-				x1: 0.4, x2: 0.6,
-				y1: 0.4, y2: 0.6
-			},
-			
-			{type: "highlight",
-				pg: 2,
-				color: 1,
-				x1: 0.3, x2: 0.7,
-				y1: 0.3, y2: 0.7
-			},
-			
-			{type: "comment",
-				pg: 1,
-				color: 0,
-				x: 0.45, y: 0.23,
-				content: "Stop playing this like a little bitch."
-			},
+</div>
+</div>
+<div id="page-navs">
+	<button id="back-button">&lt;</button>
+	<input id="page-num" type="text" value="1"/>
+	<button id="fwd-button">&gt;</button>
+</div>
 
-			{type: "comment",
-				pg: 1,
-				color: 1,
-				x: 0.65, y: 0.23,
-				content: "But I am a little bitch!"
-			}
-		]);
-	</script>
+<script type="text/javascript">
+initPDF("../test.pdf", [
+	{type: "highlight",
+	pg: 1,
+	x1: 0.4, x2: 0.6,
+	y1: 0.4, y2: 0.6
+},
+
+{type: "highlight",
+pg: 2,
+x1: 0.3, x2: 0.7,
+y1: 0.3, y2: 0.7
+},
+
+{type: "comment",
+pg: 1,
+x: 0.45, y: 0.23,
+content: "Stop playing this like a little bitch."
+}
+]);
+
+
+</script>
+
 
 <br />
+
+<%= form_for @sub, :remote => true, :url => url_for(:controller => 'submissions', :action => 'update_annotations') do |f| %>
+<%= f.hidden_field :submission_id, :value => @sub.id %>
+<%= f.hidden_field :annotations %>
+<%= f.submit "Update Annotations", id: "submit_annotations" %>
+<% end %>
+
+<script>
+
+$("#submit_annotations").click(function() {
+	$("#submission_annotations").val(JSON.stringify(annotations));
+});
+
+</script>
 <br />
 <br />
+
 
 <%= link_to 'Update Submission', new_submission_stack_item_path(@sub), :remote => true, class: "pull-left btn" %>
 
@@ -58,18 +67,18 @@
 <br />
 
 <table class="table table-striped">
-  <tr>
-    <th> Author </th>
-    <th> Comment </th>
-    <th> Date </th>
-  </tr>
+	<tr>
+		<th> Author </th>
+		<th> Comment </th>
+		<th> Date </th>
+	</tr>
 
 	<% @sub.stack_items.each do |item| %>
-     <tr>
-       <td> <%= User.find(item.author_id).first_name + ' ' + User.find(item.author_id).last_name %> </td>
-       <td> <%= item.comment %> </td>
-       <td> <%= item.created_at %> </td>
-     </tr>
+	<tr>
+		<td> <%= User.find(item.author_id).first_name + ' ' + User.find(item.author_id).last_name %> </td>
+		<td> <%= item.comment %> </td>
+		<td> <%= item.created_at %> </td>
+	</tr>
 	<% end %>
 </table>
 

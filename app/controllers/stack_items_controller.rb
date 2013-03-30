@@ -12,4 +12,5 @@ class StackItemsController < ApplicationController
     @sub = Submission.find(params[:submission_id])
 		@comment = @sub.stack_items.build()
 	end
+
 end

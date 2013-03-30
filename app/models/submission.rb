@@ -6,6 +6,7 @@ class Submission
   field :reviewer_id, type: Moped::BSON::ObjectId
   field :name, type: String
   field :datetime, type: DateTime
+  field :annotations, type: String
   embeds_many :stack_items
   embeds_many :recordings
   embeds_one :chat, autobuild: true
