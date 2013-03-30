@@ -17,25 +17,10 @@
 </div>
 
 <script type="text/javascript">
-initPDF("../test.pdf", 0, [
-	{type: "highlight",
-	pg: 1,
-	x1: 0.4, x2: 0.6,
-	y1: 0.4, y2: 0.6
-},
-
-{type: "highlight",
-pg: 2,
-x1: 0.3, x2: 0.7,
-y1: 0.3, y2: 0.7
-},
-
-{type: "comment",
-pg: 1,
-x: 0.45, y: 0.23,
-content: "Stop playing this like a little bitch."
-}
-]);
+var ann = JSON.parse(
+'[{"type":"comment","color":0,"pg":1,"x":0.20356612184249628,"y":0.2549476135040745,"content":"Play the beginning of the piece!"},{"type":"comment","color":1,"pg":1,"x":0.7102526002971769,"y":0.2724097788125728,"content":"I'm having some difficulty playing this rest."},{"type":"comment","color":1,"pg":1,"x":0.8172362555720654,"y":0.49941792782305006,"content":"This is a note."},{"type":"comment","color":0,"pg":1,"x":0.2704309063893016,"y":0.8672875436554133,"content":"Decrescendo!"},{"type":"comment","color":0,"pg":1,"x":0.8023774145616642,"y":0.8707799767171129,"content":"Flip the page."},{"type":"comment","color":0,"pg":2,"x":0.2897473997028232,"y":0.02677532013969732,"content":"Play these triplets."},{"type":"comment","color":0,"pg":2,"x":0.6909361069836553,"y":0.4214202561117579,"content":"Use three hands."},{"type":"comment","color":1,"pg":3,"x":0.19465081723625557,"y":0.033760186263096625,"content":"How do you play grace notes?"},{"type":"comment","color":1,"pg":3,"x":0.13967310549777118,"y":0.4062863795110594,"content":"This is boring :("},{"type":"comment","color":0,"pg":3,"x":0.19910846953937592,"y":0.4074505238649593,"content":"Deal with it."},{"type":"comment","color":0,"pg":4,"x":0.5512630014858841,"y":0.8137369033760187,"content":"Kill yourself."}]'
+);
+initPDF("../test.pdf", 0, ann);
 
 
 </script>
