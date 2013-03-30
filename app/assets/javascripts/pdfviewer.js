@@ -23,15 +23,15 @@ var handles = [], panes = [], overlays = [], imageData = [], markers = [];
 
 var updatePage = function(c){
 	var canvas = handles[c].get(0);
-	var context = canvas.getContext('2d');
+/*	var context = canvas.getContext('2d');
 	imageData.push(context.getImageData(0, 0, canvas.width, canvas.height));
-	imageDataCopy = copyImageData(context, imageData[c]);
+	imageDataCopy = copyImageData(context, imageData[c]);*/
 	
 	$(panes[c]).find(".marker").remove();
 	
 	for(var ai=0; ai<annotations.length; ++ai){
 		if(annotations[ai].pg != c+1) continue;
-		if(annotations[ai].type == "highlight"){
+		/*if(annotations[ai].type == "highlight"){
 			var x1 = Math.round(canvas.width*annotations[ai].x1),
 				x2 = Math.round(canvas.width*annotations[ai].x2),
 				y1 = Math.round(canvas.height*annotations[ai].y1),
@@ -44,10 +44,10 @@ var updatePage = function(c){
 						setPixel(imageDataCopy, i, j, 255, 255, 170);
 				}
 			}
-		}
+		}*/
 		else if(annotations[ai].type == "comment"){
-			x = annotations[ai].x * canvas.width
-			y = annotations[ai].y * canvas.height
+			x = annotations[ai].x * canvas.width;
+			y = annotations[ai].y * canvas.height;
 			var marker = $("<div class='marker tooltip'/>").addClass('marker-color-' + annotations[ai].color).offset({left:x, top:y}).appendTo(overlays[c]).attr("title", annotations[ai].content).tooltipster({theme: 'tooltip-theme-' + annotations[ai].color, updateAnimation: false});
 			var edit = $("<div/>").data("marker", marker).tooltipster({content: "<textarea class='edit-comment'></textarea>", theme: 'tooltip-theme-' + my_color, interactive: true,
 interactiveTolerance: 5000, trigger: "click",
@@ -72,7 +72,7 @@ interactiveTolerance: 5000, trigger: "click",
 			markers[ai] = marker;
 		}
 	}
-	context.putImageData(imageDataCopy,0,0);
+//	context.putImageData(imageDataCopy,0,0);
 }
 
 var initPDF = function(pdf_url_, my_color_, annotations_){
@@ -103,7 +103,7 @@ var initPDF = function(pdf_url_, my_color_, annotations_){
 			)
 		});
     }
-
+/*
     PDFJS.getDocument(pdf_url).then(
 		function getDocumentCallback(pdf){
 			var cont = $("#page-container");
@@ -137,7 +137,8 @@ var initPDF = function(pdf_url_, my_color_, annotations_){
 			}
 		}
 	);
-	
+*/
+
 	var changePage = function(pagenum){
 		if(pagenum > npages || 1 > pagenum){
 			return;
@@ -149,6 +150,37 @@ var initPDF = function(pdf_url_, my_color_, annotations_){
 		$("#page-num").val(pagenum);
 		$("#page-wrapper").nanoScroller({scroll: "top"});
 	}
+	
+	npages = 12;
+	var cont = $("#page-container");
+	for(var i=1; i<=npages; ++i){
+		var canvas = $("<img width='673' height='859' class = 'page-display'/>").attr("src", "/bullshit/chopin-"+(i-1)+".png");
+		canvas.click(function(e){
+			if(editingComment != null){
+				editingComment.click();
+				
+				return false;
+			}
+			var X = (e.offsetX - 8) /e.target.clientWidth,
+				Y = (e.offsetY - 8) /e.target.clientHeight;
+			annotations.push({ type: "comment",
+				color: my_color,
+				pg: currentPage,
+				x: X,
+				y: Y,
+				content: "" });
+			updatePage(currentPage-1);
+			markers[annotations.length-1].tooltipster("disable").data("edit").tooltipster("enable").click();
+		});
+		handles.push(canvas);
+		panes.push( $("<div class='page-pane'/>").append(canvas).appendTo(cont) );
+		overlays.push( $("<div class='overlay'/>").appendTo(panes[i-1]) );
+	}
+	
+	for(var i=1; i<=npages; ++i) updatePage(i-1);
+	
+	$("#page-wrapper").nanoScroller();
+	changePage(1);
 
 	$("#fwd-button").click(function(){
 		changePage(currentPage + 1);
