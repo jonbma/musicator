@@ -7,11 +7,15 @@ Musicator::Application.routes.draw do
 	match '/contact', to: 'pages#contact'
 	match '/reviewers', to: 'users#reviewers'
 
-  match 'submissions/update_annotations', to: 'submissions#update_annotations'
+	match 'submissions/update_annotations', to: 'submissions#update_annotations'
 	resources :users, only: [:show]
 	resources :submissions do
 		resources :stack_items
 		resources :chat
-		resources :recordings 
+		resources :recordings do
+			collection do
+				match 'upload' 
+			end
+		end
 	end
 end

@@ -3,7 +3,7 @@
 $(document).ready(function() {
   $.jRecorder(
   { 
-    host : 'http://localhost:3000/submissions/' + '<%= params[:submission_id] %>' + '/recordings/new',
+    host : 'http://localhost:3000/submissions/' + '<%= params[:submission_id] %>' + '/recordings/upload',
 
     callback_started_recording:     function(){callback_started(); },
     callback_stopped_recording:     function(){callback_stopped(); },

@@ -8,7 +8,6 @@ class Submission
   field :datetime, type: DateTime
   field :annotations, type: String
   embeds_many :stack_items
-  embeds_many :recordings
   embeds_one :chat, autobuild: true
   has_mongoid_attached_file :score
   has_attached_file :recording, :path => "uploads/:id-actual.:extension"

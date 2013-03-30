@@ -63,7 +63,7 @@
 						'recorder_name': 'audiorecorder',
 						'wmode' : 'transparent',
 						'bgcolor': '#ff0000',
-						'swf_path': '/jRecorder.swf',
+						'swf_path': 'jRecorder.swf',
 						'host': 'acceptfile.php?filename=hello.wav',
 						'callback_started_recording' : function(){},
 						'callback_finished_recording' : function(){},
@@ -88,7 +88,7 @@
 						
 						
 						
-							if($.browser.msie && Number($.browser.version) <= 8) {
+							if(false) {
 							var objStr = '<object  name="'+ settings['recorder_name'] +'" id="' + settings['recorder_id'] + '" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="'+ settings['rec_width'] +'" height="'+ settings['rec_height']+'"></object>';
 
 							var paramStr = [
