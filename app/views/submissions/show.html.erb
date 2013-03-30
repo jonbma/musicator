@@ -8,8 +8,8 @@
 <div id="page-wrapper" class="nano">
 	<div class="content">
 		<div id="page-container"></div>
-		<div id="overlay"></div>
 	</div>
+</div>
 </div>
 <div id="page-navs">
 	<button id="back-button">&lt;</button>
@@ -45,16 +45,15 @@ content: "Stop playing this like a little bitch."
 <br />
 
 <%= form_for @sub, :remote => true, :url => url_for(:controller => 'submissions', :action => 'update_annotations') do |f| %>
-  <%= f.hidden_field :submission_id, :value => @sub.id %>
-  <%= f.hidden_field :annotations %>
-  <%= f.submit "Update Annotations", id: "submit_annotations" %>
+<%= f.hidden_field :submission_id, :value => @sub.id %>
+<%= f.hidden_field :annotations %>
+<%= f.submit "Update Annotations", id: "submit_annotations" %>
 <% end %>
 
 <script>
 
 $("#submit_annotations").click(function() {
-  console.log("cao");
-  $("#submission_annotations").val(JSON.stringify(annotations));
+	$("#submission_annotations").val(JSON.stringify(annotations));
 });
 
 </script>
@@ -68,18 +67,18 @@ $("#submit_annotations").click(function() {
 <br />
 
 <table class="table table-striped">
-  <tr>
-    <th> Author </th>
-    <th> Comment </th>
-    <th> Date </th>
-  </tr>
+	<tr>
+		<th> Author </th>
+		<th> Comment </th>
+		<th> Date </th>
+	</tr>
 
 	<% @sub.stack_items.each do |item| %>
-     <tr>
-       <td> <%= User.find(item.author_id).first_name + ' ' + User.find(item.author_id).last_name %> </td>
-       <td> <%= item.comment %> </td>
-       <td> <%= item.created_at %> </td>
-     </tr>
+	<tr>
+		<td> <%= User.find(item.author_id).first_name + ' ' + User.find(item.author_id).last_name %> </td>
+		<td> <%= item.comment %> </td>
+		<td> <%= item.created_at %> </td>
+	</tr>
 	<% end %>
 </table>
 

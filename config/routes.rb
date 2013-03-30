@@ -12,5 +12,6 @@ Musicator::Application.routes.draw do
 	resources :submissions do
 		resources :stack_items
 		resources :chat
+		resources :recordings 
 	end
 end

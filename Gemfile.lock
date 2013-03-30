@@ -150,6 +150,7 @@ DEPENDENCIES
   mongo (~> 1.7.0)
   mongoid
   mongoid-paperclip
+  paperclip (~> 3.0)
   rails (= 3.2.11)
   rb-readline
   sass-rails (~> 3.2.3)
