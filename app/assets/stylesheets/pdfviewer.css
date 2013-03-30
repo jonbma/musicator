@@ -1,65 +1,103 @@
-	.page-display{
-		background: white;
-	}
-	#page-wrapper{
-		width: 40em;
-		height: 30em;
-		border: 1px solid #ccc;
-		border-radius: 3px;
-		margin: 0 auto;
-		overflow:hidden;
+.page-display{
+	background: white;
+}
+#page-wrapper{
+	width: 40em;
+	height: 30em;
+	border: 1px solid #ccc;
+	border-top: none;
+	border-radius: 0 0 3px 3px;
+	margin: 0 auto;
+	overflow:hidden;
 
-		background-color: #eee;
-		background-image: url('load.gif');
-		background-repeat: no-repeat;
-		background-position: center;
-	}
-	#page-container{
-	}
-	.page-pane{
-		display: none;
-	}
-	
-	#page-navs{
-		margin: 0 auto;
-		height: 2em;
-		width: 10em;
-		margin-top: 10px;
-		text-align: center;
-	}
-	
-	#page-navs > input{
-		border: none;
-		width: 22px;
-		height: 22px;
-		text-align: center;
-		border: 1px solid #ccc;
-	}
-	
-	.overlay {
-		position: absolute;
-		top: 0; left: 0;
-		z-index: 1;
-	}
-	
-	.marker {
-		position: absolute;
-		height: 1em;
-		width: 1em;
-		border-radius: 1em;
-		border: 2px solid #c00;
-		background-color: #f55;
-		opacity: 0.8;
-		box-shadow: 0px 3px 5px rgba(0,0,0,0.4);
-	}
-	
-	.marker:hover {
-		margin-top: -3px;
-		box-shadow: 0px 6px 5px rgba(0,0,0,0.4);
-	}
+	background-color: #eee;
+	background-image: url('load.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+#page-container{
+}
+.page-pane{
+	display: none;
+}
 
+#page-navs{
+	border-radius: 3px 3px 0 0;
+	margin: 0 auto;
+	padding: 0.2em 0;
+	width: 40em;
+	margin-top: 10px;
+	text-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+}
 
+#page-navs > input{
+	border: none;
+	text-align: center;
+	border: 1px solid #ccc;
+}
 
+#page-navs > *{
+	width: 28px;
+	height: 28px;
+	margin: 0 2px;
+}
+
+.overlay {
+	position: absolute;
+	top: 0; left: 0;
+	z-index: 1;
+}
+
+.edit-comment {
+	resize: none;
+	color: #777;
+}
+
+.edit-comment:focus {
+	outline: none;
+}
+
+.marker {
+	position: absolute;
+	height: 16px;
+	width: 16px;
+	box-sizing: border-box;
+	border-radius: 16px;
+	opacity: 0.8;
+	box-shadow: 0px 3px 5px rgba(0,0,0,0.4);
+}
+
+.marker-color-0 {
+	border: 2px solid #c00;
+	background-color: #f55;
+}
+
+.marker-color-1 {
+	border: 2px solid #a50;
+	background-color: #f94;
+}
+	
+.marker:hover {
+	margin-top: -3px;
+	box-shadow: 0px 6px 5px rgba(0,0,0,0.4);
+}
+
+.hover-hand {
+	cursor: pointer;
+}
+
+.marker-selected {
+	border-width: 4px;	
+}
+
+.edit-comment {
+	width: 180px;
+	height: 70px;
+	border: none;
+	font-family: Arian, sans-serif;
+}
 
 /** initial setup **/
 .nano {
@@ -126,7 +164,7 @@ html {
 
 
 /* This is the default Tooltipster theme (feel free to modify or duplicate and create multiple themes!): */
-.tooltipster-default {
+.tooltip-theme-0 {
 	border-radius: 5px; 
 	border: 2px solid #ecc;
 	background: #fee;
@@ -134,8 +172,16 @@ html {
 	max-width: 200px;
 }
 
+.tooltip-theme-1 {
+	border-radius: 5px; 
+	border: 2px solid #edc;
+	background: #fff5e4;
+	color: #430;
+	max-width: 200px;
+}
+
 /* Use this next selector to style things like font-size and line-height: */
-.tooltipster-default .tooltipster-content {
+.tooltipster-content {
 	font-family: Arial, sans-serif;
 	font-size: 14px;
 	line-height: 16px;

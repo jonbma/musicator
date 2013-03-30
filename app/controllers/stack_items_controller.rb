@@ -1,4 +1,4 @@
-class StackItemsController < ActionController::Base
+class StackItemsController < ApplicationController
 	
 	def create
 		@sub = Submission.find(params[:stack_item][:sub_id].to_s)

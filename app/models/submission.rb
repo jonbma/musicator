@@ -7,8 +7,11 @@ class Submission
   field :name, type: String
   field :datetime, type: DateTime
   embeds_many :stack_items
+  embeds_many :recordings
   embeds_one :chat, autobuild: true
   has_mongoid_attached_file :score
+  has_attached_file :recording, :path => "uploads/:id-actual.:extension"
+
 	attr_accessible :reviewer_tokens, :author_id, :reviewer_id, :name
 	attr_reader :reviewer_tokens
 
