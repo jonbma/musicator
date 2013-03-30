@@ -5,4 +5,5 @@ class Submission
   field :name, type: String
   embeds_many :stack_items
   embedded_in :user
+  
 end
