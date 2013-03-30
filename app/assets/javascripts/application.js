@@ -17,7 +17,7 @@
 //= require jquery.nanoscroller.min
 //= require jquery.tooltipster.min
 //= require pdf
-//= require pdfviewer
 //= require jquery.tokeninput
 //= require token
 //= require jRecorder
+//= require pdfviewer
