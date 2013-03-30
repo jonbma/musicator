@@ -4,5 +4,9 @@
 
 <h2>Comments</h2>
 <ul>
-	<li></li>
+	<% @sub.stack_items.each do |item| %>
+		<% if item.comment %>
+			<li><%= item.comment %></li>
+		<% end %>
+	<% end %>
 </ul>
