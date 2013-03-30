@@ -14,3 +14,10 @@
  *= require pdfviewer
  *= require token-input-facebook
  */
+
+#header-logo {
+	opacity: 0.8;
+}
+#header-logo:hover{
+	opacity: 1.0;
+}
