@@ -20,3 +20,4 @@
 //= require pdfviewer
 //= require jquery.tokeninput
 //= require token
+//= require jRecorder
