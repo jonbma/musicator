@@ -5,6 +5,9 @@ $(function () {
 		prePopulate: $('#submission_reviewer_tokens').data('pre'),
 		tokenLimit: 1,
 		theme: 'facebook',
-		zindex: '11001'
+		zindex: '11001',
+    tokenValue: "_id",
+    
 	});
+
 });
