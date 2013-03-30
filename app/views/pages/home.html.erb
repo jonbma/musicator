@@ -12,6 +12,7 @@
       <th> Submission </th>
       <th> Author </th>
       <th> Reviewer </th>
+      <th> Last Activity </th>
     </tr>
     <% @submissions.each do |s|%>
       <tr>
@@ -20,6 +21,7 @@
              <%= User.find(s.author_id).last_name %> </td>
         <td> <%= User.find(s.reviewer_id).first_name + ' ' %>
              <%= User.find(s.reviewer_id).last_name %> </td>
+        <td> <%= s.updated_at %> </td>
       </tr>
     <% end %>
   </table>
