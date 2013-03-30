@@ -14,5 +14,11 @@ class SubmissionsController < ApplicationController
 
 		redirect_to @sub
 	end
-	
+
+  def update_annotations
+    @sub = Submission.find(params[:submission][:submission_id])
+    @sub.set(:annotations, params[:submission][:annotations])
+    render :nothing => true, :status => :ok
+  end
+
 end

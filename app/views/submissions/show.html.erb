@@ -37,11 +37,30 @@ x: 0.45, y: 0.23,
 content: "Stop playing this like a little bitch."
 }
 ]);
+
+
 </script>
 
+
+<br />
+
+<%= form_for @sub, :remote => true, :url => url_for(:controller => 'submissions', :action => 'update_annotations') do |f| %>
+  <%= f.hidden_field :submission_id, :value => @sub.id %>
+  <%= f.hidden_field :annotations %>
+  <%= f.submit "Update Annotations", id: "submit_annotations" %>
+<% end %>
+
+<script>
+
+$("#submit_annotations").click(function() {
+  console.log("cao");
+  $("#submission_annotations").val(JSON.stringify(annotations));
+});
+
+</script>
 <br />
 <br />
-<br />
+
 
 <%= link_to 'Update Submission', new_submission_stack_item_path(@sub), :remote => true, class: "pull-left btn" %>
 
