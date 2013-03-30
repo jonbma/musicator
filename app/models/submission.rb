@@ -7,6 +7,7 @@ class Submission
   field :name, type: String
   field :datetime, type: DateTime
   field :annotations, type: String
+  field :audio, type: Integer
   embeds_many :stack_items
   embeds_one :chat, autobuild: true
   has_mongoid_attached_file :score

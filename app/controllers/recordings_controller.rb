@@ -4,7 +4,9 @@ class RecordingsController < ApplicationController
 	end
 
 	def upload
-		File.open('internal_tools/recorded_song.wav', 'wb') do |f| 
+		@sub = Submission.find(params[:submission_id])
+		@sub.set(:audio, 1)
+		File.open('public/' + @sub.id.to_s + '.wav', 'wb') do |f| 
 			f.write(request.raw_post) 
 		end
 		redirect_to root_path

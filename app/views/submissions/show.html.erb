@@ -58,6 +58,13 @@ $("#submit_annotations").click(function() {
 
 </script>
 <br />
+
+
+<%= link_to "Record Audio", new_submission_recording_path(@sub), class: 'btn' %>
+
+<% if @sub.audio %>
+<a href=<%= ("http://localhost:3000/" + @sub.id.to_s) + ".wav" %> />Audio</a>
+<% end %>
 <br />
 
 
