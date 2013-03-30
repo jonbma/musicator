@@ -7,5 +7,6 @@ Musicator::Application.routes.draw do
 	match '/contact', to: 'pages#contact'
 
 	resources :users, only: [:show]
+	resources :submissions
 
 end
