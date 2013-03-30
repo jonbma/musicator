@@ -5,8 +5,14 @@
 <h2>Comments</h2>
 <ul>
 	<% @sub.stack_items.each do |item| %>
-		<% if item.comment %>
-			<li><%= item.comment %></li>
-		<% end %>
+	<% if item.comment %>
+	<li><%= item.comment %></li>
+	<% end %>
 	<% end %>
 </ul>
+
+
+<%= link_to 'Add', new_submission_stack_item_path(@sub), :remote => true, 
+class: "pull-left btn btn-mini btn-primary" %>
+
+

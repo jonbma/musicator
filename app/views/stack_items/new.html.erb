@@ -1,0 +1,9 @@
+<%= form_for @comment do |f| %>
+<%= f.label :comment %>
+<%= f.text_area :comment %>
+
+<%= f.hidden_field :sub_id, :value => @sub.id %>
+
+
+<%= f.submit "Add" %>
+<% end %>
