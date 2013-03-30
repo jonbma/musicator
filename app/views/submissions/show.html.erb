@@ -39,17 +39,31 @@ content: "Stop playing this like a little bitch."
 ]);
 </script>
 
-<h2>Comments</h2>
-<ul>
+<br />
+<br />
+<br />
+
+<%= link_to 'Update Submission', new_submission_stack_item_path(@sub), :remote => true, class: "pull-left btn" %>
+
+<br />
+<br />
+
+<table class="table table-striped">
+  <tr>
+    <th> Author </th>
+    <th> Comment </th>
+    <th> Date </th>
+  </tr>
+
 	<% @sub.stack_items.each do |item| %>
-	<% if item.comment %>
-	<li><%= item.comment %></li>
+     <tr>
+       <td> <%= User.find(item.author_id).first_name + ' ' + User.find(item.author_id).last_name %> </td>
+       <td> <%= item.comment %> </td>
+       <td> <%= item.created_at %> </td>
+     </tr>
 	<% end %>
-	<% end %>
-</ul>
+</table>
 
 
-<%= link_to 'Add', new_submission_stack_item_path(@sub), :remote => true,
-class: "pull-left btn btn-small btn-primary" %>
 
 

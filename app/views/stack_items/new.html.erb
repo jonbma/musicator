@@ -1,11 +1,10 @@
 <% provide(:title, 'New Item') %>
 
 <%= form_for([@sub, @comment]) do |f| %>
-<%= f.label :comment %>
-<%= f.text_area :comment %>
-
+<%= f.text_area :comment, :style => "width:550px;", :placeholder => "Comment here" %>
+<br />
 <%= f.hidden_field :sub_id, :value => @sub.id %>
+<%= f.hidden_field :author_id, :value => current_user._id %>
 
-
-<%= f.submit "Add" %>
+<%= f.submit "Submit" %>
 <% end %>
