@@ -5,39 +5,39 @@
 
 <h2>PDF</h2>
 
-	<div id="page-wrapper" class="nano">
-		<div class="content">
-			<div id="page-container"></div>
-			<div id="overlay"></div>
-   		</div>
+<div id="page-wrapper" class="nano">
+	<div class="content">
+		<div id="page-container"></div>
+		<div id="overlay"></div>
 	</div>
-	<div id="page-navs">
-		<button id="back-button">&lt;</button>
-		<input id="page-num" type="text" value="1"/>
-		<button id="fwd-button">&gt;</button>
-	</div>
+</div>
+<div id="page-navs">
+	<button id="back-button">&lt;</button>
+	<input id="page-num" type="text" value="1"/>
+	<button id="fwd-button">&gt;</button>
+</div>
 
-		<script type="text/javascript">
-		initPDF("../test.pdf", [
-			{type: "highlight",
-				pg: 1,
-				x1: 0.4, x2: 0.6,
-				y1: 0.4, y2: 0.6
-			},
-			
-			{type: "highlight",
-				pg: 2,
-				x1: 0.3, x2: 0.7,
-				y1: 0.3, y2: 0.7
-			},
-			
-			{type: "comment",
-				pg: 1,
-				x: 0.45, y: 0.23,
-				content: "Stop playing this like a little bitch."
-			}
-		]);
-	</script>
+<script type="text/javascript">
+initPDF("../test.pdf", [
+	{type: "highlight",
+	pg: 1,
+	x1: 0.4, x2: 0.6,
+	y1: 0.4, y2: 0.6
+},
+
+{type: "highlight",
+pg: 2,
+x1: 0.3, x2: 0.7,
+y1: 0.3, y2: 0.7
+},
+
+{type: "comment",
+pg: 1,
+x: 0.45, y: 0.23,
+content: "Stop playing this like a little bitch."
+}
+]);
+</script>
 
 <h2>Comments</h2>
 <ul>
@@ -49,7 +49,7 @@
 </ul>
 
 
-<%= link_to 'Add', new_submission_stack_item_path(@sub), :remote => true, 
+<%= link_to 'Add', new_submission_stack_item_path(@sub), :remote => true,
 class: "pull-left btn btn-mini btn-primary" %>
 
 

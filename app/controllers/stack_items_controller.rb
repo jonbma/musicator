@@ -9,6 +9,6 @@ class StackItemsController < ActionController::Base
 
 	def new
 		@sub = Submission.find(params[:submission_id])
-		@comment = @sub.stack_items.new
+		@comment = @sub.stack_items.build()
 	end
 end

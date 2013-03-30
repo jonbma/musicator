@@ -1,6 +1,6 @@
 <% provide(:title, 'New Submission Detail') %>
 
-<%= form_for @comment do |f| %>
+<%= form_for([@sub, @comment]) do |f| %>
 <%= f.label :comment %>
 <%= f.text_area :comment %>
 
