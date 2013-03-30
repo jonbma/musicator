@@ -25,4 +25,5 @@ gem 'jquery-rails'
 gem "mongoid"
 gem 'jquery-ui-rails'
 
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
 
