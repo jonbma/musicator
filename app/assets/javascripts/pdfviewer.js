@@ -18,7 +18,7 @@ var copyImageData = function (ctx, src){
 var pagesLoaded = 0;
 var currentPage = 1;
 var editingComment = null;
-var npages, pdf_url, annotations, my_color;
+var npages, pdf_url, annotations = [], my_color;
 var handles = [], panes = [], overlays = [], imageData = [], markers = [];
 
 var updatePage = function(c){
@@ -154,7 +154,7 @@ var initPDF = function(pdf_url_, my_color_, annotations_){
 	npages = 12;
 	var cont = $("#page-container");
 	for(var i=1; i<=npages; ++i){
-		var canvas = $("<img width='673' height='859' class = 'page-display'/>").attr("src", "/bullshit/chopin-"+(i-1)+".png");
+		var canvas = $("<img class = 'page-display'/>").attr("src", "/bullshit/chopin-"+(i-1)+".png");
 		canvas.click(function(e){
 			if(editingComment != null){
 				editingComment.click();
@@ -189,6 +189,11 @@ var initPDF = function(pdf_url_, my_color_, annotations_){
 	$("#back-button").click(function(){
 		changePage(currentPage - 1);
 	});
+	
+	$(window).load( function(){
+			for(var i=1; i<=npages; ++i) updatePage(i-1);
+		}
+	);
 }
 
 
